@@ -14,13 +14,19 @@ class Platform {
         PLATFORM_HEIGHT = h;
     }
 
+    int getLength() {
+        return PLATFORM_LENGTH;
+    }
+    int getWidth() {
+        return PLATFORM_WIDTH;
+    }
+
     // Updates the plaftorm
     void update(PVector pA, PVector pB, PVector pC){
         // Creates the first vector
         v1.x = pA.x - pB.x;
         v1.y = pA.y - pB.y;
-        // v1.z = pA.z - pB.z;
-        v1.z = 130;
+        v1.z = pA.z - pB.z;
 
         // Creates the second vector
         v2.x = pC.x - pB.x;
@@ -47,7 +53,6 @@ class Platform {
         float z = (-v3.x / v3.z) * x + (-v3.y / v3.z) * y + (d / v3.z);
         return (int)z;
     }
-
 
     // dx/dz = -a/c
     float dxDZ() {
@@ -108,4 +113,5 @@ class Platform {
         vertex(PLATFORM_LENGTH, -PLATFORM_WIDTH, z4_t);
         endShape();
     }
+
 }
